@@ -1,0 +1,10 @@
+build
+coverage
+dist
+.DS_Store
+package-lock.json
+logs
+.settings
+node_modules
+npm-debug.log
+yarn.lock

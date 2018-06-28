@@ -1,0 +1,27 @@
+{
+  "name": "music-search",
+  "version": "1.0.0",
+  "description": "A search interface for music",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:server": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wingedearth/music-search.git"
+  },
+  "author": "Andrew A. Anissi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wingedearth/music-search/issues"
+  },
+  "homepage": "https://github.com/wingedearth/music-search#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.10",
+    "path": "^0.12.7",
+    "webpack": "^4.13.0"
+  }
+}
