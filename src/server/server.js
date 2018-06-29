@@ -1,7 +1,7 @@
-require('babel-polyfill');
-
 import express from 'express';
 import router from './routes/router';
+
+require('babel-polyfill');
 
 // constants
 const DEFAULT_PORT = 3000;
