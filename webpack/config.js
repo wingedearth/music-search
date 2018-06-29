@@ -19,6 +19,10 @@ const config = {
 	},
 	module: {
 		rules: rules
+	},
+	watchOptions: {
+		ignored: /node_modules/,
+		poll: true
 	}
 };
 

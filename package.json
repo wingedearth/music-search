@@ -4,13 +4,11 @@
   "description": "A search interface for music",
   "main": "index.js",
   "scripts": {
-    "build:server": "npx webpack --config ./webpack.config.backend.js",
     "clean": "rimraf build",
-    "prebuild:server": "npm run clean",
-    "server": "node ./build/server.js",
-    "server:dev": "nodemon ./build/server.js",
-    "start": "npm run build:server && npm run server",
-    "start:dev": "npm run build:server && npm run server:dev"
+    "server:dev": "npm run clean && NVIRONMENT=development npx webpack --config ./webpack.config.backend.js --watch",
+    "server:build": "npm run clean && npx webpack --config ./webpack.config.backend.js",
+    "server": "npm run server:build && ENVIRONMENT=production node ./build/server.js",
+    "start": "npm run server"
   },
   "repository": {
     "type": "git",
@@ -30,6 +28,7 @@
     "fs": "0.0.1-security",
     "lodash": "^4.17.10",
     "mini-css-extract-plugin": "^0.4.1",
+    "nodemon-webpack-plugin": "^4.0.3",
     "path": "^0.12.7",
     "rimraf": "^2.6.2"
   },
@@ -56,6 +55,7 @@
     "prettier": "^1.13.7",
     "style-loader": "^0.21.0",
     "webpack": "^4.14.0",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "^3.0.8",
+    "webpack-node-externals": "^1.7.2"
   }
 }
