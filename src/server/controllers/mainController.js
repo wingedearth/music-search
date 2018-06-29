@@ -1,9 +1,9 @@
+import getTemplate from '../../assets/templates/index';
+
 const pageTitle = 'Music Search';
+const markup = '<h1>Music Search App</h1>';
+const template = getTemplate(pageTitle, markup, { foo: 'bar' });
 
-const markup = `
-	<h1>${pageTitle}</h1>
-`;
-
-const mainController = (req, res) => res.send(markup);
+const mainController = (req, res) => res.send(template);
 
 export default mainController;
