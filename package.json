@@ -4,8 +4,13 @@
   "description": "A search interface for music",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:server": "npx babel src/server --out-dir build/server"
+    "build:server": "npx babel src/server --out-dir build/server",
+    "clean": "rimraf build",
+    "prebuild:server": "npm run clean",
+    "server": "node ./build/server/server.js",
+    "server:dev": "nodemon ./build/server/server.js",
+    "start": "npm run build:server && npm run server",
+    "start:dev": "npm run build:server && npm run server:dev"
   },
   "repository": {
     "type": "git",
@@ -23,6 +28,7 @@
     "fs": "0.0.1-security",
     "lodash": "^4.17.10",
     "path": "^0.12.7",
+    "rimraf": "^2.6.2",
     "webpack": "^4.13.0"
   },
   "devDependencies": {
