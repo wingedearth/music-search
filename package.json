@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf build",
-    "server:dev": "npm run clean && NVIRONMENT=development npx webpack --config ./webpack.config.backend.js --watch",
+    "server:dev": "ENVIRONMENT=development npx webpack --config ./webpack.config.backend.js --watch",
     "server:build": "npm run clean && npx webpack --config ./webpack.config.backend.js",
     "server": "npm run server:build && ENVIRONMENT=production node ./build/server.js",
-    "start": "npm run server"
+    "start": "npx webpack --config webpack.config.frontend.js && npm run server:dev"
   },
   "repository": {
     "type": "git",

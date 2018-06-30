@@ -18,7 +18,7 @@ export default function(title, markup, initialStateData) {
 			</head>
 			<body>
 				<div id="main">${markup}</div>
-				<script type="text/javascript" src="/js/app.js"></script>
+				<script type="text/javascript" src="app.js"></script>
 				<script>window.__INITIAL_STATE__ = ${initialState}</script>
 			</body>
 		</html>`;

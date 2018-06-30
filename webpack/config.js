@@ -10,6 +10,7 @@ const config = {
 		tls: 'empty'
 	},
 	output: {
+		publicPath: path.resolve(__dirname, '..', 'build'),
 		filename: '[name].js',
 		path: path.resolve(__dirname, '..', 'build')
 	},
