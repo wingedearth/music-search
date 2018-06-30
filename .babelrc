@@ -1,11 +1,16 @@
 {
-	"presets": ["env", "react"],
+	"presets": [
+		[
+			"env",
+			{
+				"modules": false,
+				"loose": true
+			}
+		], "react"
+	],
 	"plugins": [
-		["transform-runtime", {
-		  "helpers": false,
-		  "polyfill": true,
-		  "regenerator": true,
-		  "moduleName": "babel-runtime"
-		}]
-	]
+		"syntax-dynamic-import"
+	],
+	"env": {
+	}
 }

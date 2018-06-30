@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 import router from './routes/router';
 
 require('babel-polyfill');
@@ -6,9 +7,12 @@ require('babel-polyfill');
 // constants
 const DEFAULT_PORT = 3000;
 
-const app = express();
+const server = express();
 const port = DEFAULT_PORT;
 
-app.use(router);
+server.use(express.static(path.resolve(__dirname, '..', '..')));
+server.use(express.static('./build'));
 
-app.listen(port, () => console.log(`A goblin-mage has conjured a server on port ${port}.`));
+server.use(router);
+
+server.listen(port, () => console.log(`A goblin-mage has conjured a server on port ${port}.`));
