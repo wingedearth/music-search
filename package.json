@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf build",
-    "server:dev": "ENVIRONMENT=development npx webpack --config ./webpack.config.backend.js --watch",
-    "server:build": "npm run clean && npx webpack --config ./webpack.config.backend.js",
-    "server": "npm run server:build && ENVIRONMENT=production node ./build/server.js",
-    "start": "npx webpack --config webpack.config.frontend.js && npm run server:dev"
+    "frontend": "npx webpack --config webpack.config.frontend.js",
+    "frontend:dev": "npx webpack --config webpack.config.frontend.js --watch",
+    "server": "ENVIRONMENT=production npx webpack --config ./webpack.config.backend.js && node ./build/server.js",
+    "server:dev": "ENVIRONMENT=development npx webpack --config ./webpack.config.backend.js --watch",   
+    "start": "npm run clean && npm run frontend && ENVIRONMENT=production npm run server",
+    "start:dev": "npm run clean && npm run frontend && npm run server:dev"
   },
   "repository": {
     "type": "git",
@@ -24,13 +26,19 @@
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
+    "base-64": "^0.1.0",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "fs": "0.0.1-security",
     "lodash": "^4.17.10",
     "mini-css-extract-plugin": "^0.4.1",
+    "mongodb": "^3.1.0",
+    "mongoose": "^5.1.7",
     "nodemon-webpack-plugin": "^4.0.3",
     "path": "^0.12.7",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "superagent": "^3.8.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
