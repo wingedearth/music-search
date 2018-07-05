@@ -1,6 +1,6 @@
 {
   "name": "music-search",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A search interface for music",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "frontend": "npx webpack --config webpack.config.frontend.js",
     "frontend:dev": "npx webpack --config webpack.config.frontend.js --watch",
     "server": "ENVIRONMENT=production npx webpack --config ./webpack.config.backend.js && node ./build/server.js",
-    "server:dev": "ENVIRONMENT=development npx webpack --config ./webpack.config.backend.js --watch",   
+    "server:dev": "ENVIRONMENT=development npx webpack --config ./webpack.config.backend.js --watch",
     "start": "npm run clean && npm run frontend && ENVIRONMENT=production npm run server",
     "start:dev": "npm run clean && npm run frontend && npm run server:dev"
   },
