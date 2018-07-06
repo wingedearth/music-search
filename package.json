@@ -1,6 +1,6 @@
 {
   "name": "music-search",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A search interface for music",
   "main": "index.js",
   "scripts": {
@@ -37,8 +37,11 @@
     "mongoose": "^5.1.7",
     "nodemon-webpack-plugin": "^4.0.3",
     "path": "^0.12.7",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "rimraf": "^2.6.2",
-    "superagent": "^3.8.3"
+    "superagent": "^3.8.3",
+    "webpack-omit-js-for-css-plugin": "^3.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -63,6 +66,7 @@
     "prettier": "^1.13.7",
     "style-loader": "^0.21.0",
     "webpack": "^4.14.0",
+    "webpack-assets-manifest": "^3.0.1",
     "webpack-cli": "^3.0.8",
     "webpack-node-externals": "^1.7.2"
   }
