@@ -22,7 +22,8 @@
 			"indent": [2, "tab", { "SwitchCase": 1 }],
 			"no-console": 0,
 			"no-tabs": 0,
-    	"prettier/prettier": [
+			"no-useless-constructor": 0,
+    		"prettier/prettier": [
 				"error",
 				{
 					"tabWidth": 4,
@@ -31,6 +32,11 @@
 					"printWidth": 120
 				}
 			],
+			"react/jsx-filename-extension": 0,
+			"react/jsx-indent": 0,
+			"react/jsx-indent-problem": 0,
+			"react/jsx-one-expression-per-line": 0,
+			"react/prefer-stateless-function": 0,
 			"semi": [2, "always"]
     }
 }

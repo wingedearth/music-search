@@ -1,7 +1,7 @@
 import base64 from 'base-64';
 import request from 'superagent';
-import * as constants from '../config/constants';
-import { newArtist, isIdInDatabase } from './artistController';
+import { spotifyClientLoginUri, spotifySearchUri } from '../../assets/constants';
+import { newArtist } from './artistController';
 
 /**
  * Authenticates client application with Spotify API
@@ -13,7 +13,7 @@ function auth() {
 	const loginHeader = `Basic ${loginAuth}`;
 
 	return request
-		.post(constants.spotifyClientLoginUri)
+		.post(spotifyClientLoginUri)
 		.set('Content-Type', 'application/x-www-form-urlencoded')
 		.set('Authorization', loginHeader)
 		.send({ grant_type: 'client_credentials' })
@@ -41,7 +41,7 @@ export default (req, res) => {
 
 	auth().then(token => {
 		request
-			.get(constants.spotifySearchUri)
+			.get(spotifySearchUri)
 			.query({ type: 'artist', q: searchString })
 			.set('Authorization', `Bearer ${token}`)
 			.then(resp => {

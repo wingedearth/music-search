@@ -13,5 +13,6 @@ router.get('/genre', artistController.getArtists);
 
 // Get Main Page
 router.get('/', mainController);
+router.get('*', mainController);
 
 export default router;

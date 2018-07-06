@@ -2,6 +2,9 @@ const _ = require('lodash');
 const NodemonPlugin = require('nodemon-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 const config = require('./webpack/config');
+const plugins = require('./webpack/plugins');
+
+plugins.push(new NodemonPlugin());
 
 const backend = _.merge({}, config, {
 	name: 'backend',
@@ -19,7 +22,7 @@ const backend = _.merge({}, config, {
 		Buffer: false
 	},
 	externals: [nodeExternals()],
-	plugins: [new NodemonPlugin()]
+	plugins: plugins
 });
 
 module.exports = backend;

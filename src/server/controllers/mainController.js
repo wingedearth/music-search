@@ -1,22 +1,22 @@
-import getTemplate from '../../assets/templates/index';
+import {renderToString} from 'react-dom/server';
+import React from 'react';
+import getTemplate from '../../assets/views/index';
+import Home from '../../client/components/Home';
 
-const pageTitle = 'Music Search';
-const markup = '<h1>Music Search Thingy</h1>';
 const initialStateData = {
 	foo: 'bar',
 	searchText: '',
-	searchTerm: ''
+	searchTerm: '',
+	title: 'Music Search'
 };
+const markup = renderToString(<Home />);
 
 /**
- * Sends markup in response
- * @param {obj} req - request
- * @param {obj} res - response
+ * Sends home page
+ * @param {obj} req - Express request
+ * @param {obj} res - Express response
  */
 export default (req, res) => {
-	// build initial page template
-	const template = getTemplate(pageTitle, markup, initialStateData);
-
-	// send initial page
-	res.send(template);
+	res.send(getTemplate(markup, initialStateData));
 };
+
