@@ -24,6 +24,17 @@ const config = {
 	watchOptions: {
 		ignored: /node_modules/,
 		poll: true
+	},
+	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				styles: {
+					name: 'styles',
+					test: /\.css$/,
+					chunks: 'initial'
+				}
+			}
+		}
 	}
 };
 
