@@ -14,7 +14,7 @@ export default function(markup, initialStateData) {
 				<meta charset="UTF-8">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<title>${title} - This is coming from the server-side template</title>
-				<link rel="stylesheet" href="/css/style.css">
+				<link rel="stylesheet" href="app.css">
 			</head>
 			<body>
 				<div id="main">${markup}</div>
