@@ -1,20 +1,21 @@
 import React from 'react';
-import { MAIN_TITLE } from '../../assets/constants';
-// import '../../client/css/main.css';
+import Nav from './Nav';
+import Information from './Information';
+import Footer from './Footer';
+import '../css/home.scss';
 
-export class Home extends React.Component {
+export default class Home extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 
 	render() {
 		return (
-			<div className="Home">
-				<div className="content">{MAIN_TITLE}</div>
-				<div>This is from the Home component.</div>
+			<div className="home">
+				<Nav />
+				<Information />
+				<Footer />
 			</div>
 		);
 	}
 }
-
-export default Home;

@@ -1,0 +1,41 @@
+.nav {
+	position: relative;
+	height: 75px;
+	background-color: #F9A602;
+	width: 100%;
+}
+
+.nav__content {
+	position: relative;
+	padding-top: 15px;
+}
+
+.nav__title {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: right;	
+	width: 55%;
+}
+
+.nav__title-text {
+	color: white;
+	font-weight: 900;
+	font-size: 20px;
+	margin-left: auto;
+	text-align: center;
+}
+
+.nav__search {
+	position: relative;
+	vertical-align: middle;
+	display: inline-block;
+	margin-left: 3%;
+	width: 40%;
+}
+
+.nav__input {
+	position: relative;
+	height: 20px;
+	width: 100%;
+}
