@@ -6,7 +6,7 @@ function addArtist(artistData) {
 	const spotifyId = artistData.id;
 	const uri = artistData.href;
 	const spotifyUri = artistData.external_urls.spotify;
-	const imageUri = artistData.images[0].url;
+	const imageUri = _.get(artistData.images[0], 'url');
 
 	const genres = artistData.genres.map(genre => {
 		return { genre };
