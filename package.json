@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/wingedearth/music-search#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",

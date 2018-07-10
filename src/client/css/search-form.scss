@@ -1,0 +1,15 @@
+.searchform {
+	width: 100%;
+}
+
+.searchform__input {
+	position: relative;
+	height: 20px;
+	width: calc(95% - 95px);
+}
+
+.searchform__submit {
+	height: 20px;
+	width: 80px;
+	margin-left: 15px;
+}
