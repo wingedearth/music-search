@@ -1,7 +1,4 @@
-import {renderToString} from 'react-dom/server';
-import React from 'react';
 import getTemplate from '../../assets/views/index';
-import Home from '../../client/components/Home';
 
 const initialStateData = {
 	foo: 'bar',
@@ -9,7 +6,7 @@ const initialStateData = {
 	searchTerm: '',
 	title: 'Music Search'
 };
-const markup = renderToString(<Home />);
+const markup = '';
 
 /**
  * Sends home page
@@ -19,4 +16,3 @@ const markup = renderToString(<Home />);
 export default (req, res) => {
 	res.send(getTemplate(markup, initialStateData));
 };
-

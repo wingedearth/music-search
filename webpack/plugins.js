@@ -3,10 +3,7 @@ const WebpackAssetsManifest = require('webpack-assets-manifest');
 const OmitJSforCSSPlugin = require('webpack-omit-js-for-css-plugin');
 
 const plugins = [
-	new MiniCssExtractPlugin({
-		filename: '[name].css',
-		chunkFilename: '[id].css'
-	}),
+	new MiniCssExtractPlugin({ filename: '[name].css' }),
 	new WebpackAssetsManifest({
 		output: '../build/webpack.manifest.json',
 		publicPath: '../build'

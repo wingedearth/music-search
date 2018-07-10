@@ -8,16 +8,11 @@ const jsRule = {
 	exclude: [/node_modules/]
 };
 
-const cssRule = {
-	test: /\.css$/,
-	use: [
-		{
-			loader: MiniCssExtractPlugin.loader
-		},
-		'css-loader'
-	]
+const scssRule = {
+	test: /\.scss$/,
+	use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
 };
 
-const rules = [jsRule, cssRule];
+const rules = [jsRule, scssRule];
 
 module.exports = rules;
