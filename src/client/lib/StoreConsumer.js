@@ -12,10 +12,10 @@ class StoreConsumer extends React.Component {
 
 		return (
 			<Context.Consumer>
-				{({ state, actions }) =>
+				{({ store, actions }) =>
 					React.Children.map(children, child =>
 						cloneElement(child, {
-							state,
+							store,
 							actions
 						})
 					)

@@ -7,6 +7,8 @@ export default class SearchForm extends Component {
 	constructor(props) {
 		super(props);
 
+		console.log('SearchForm props:', props);
+
 		this.sendQuery = event => {
 			event.preventDefault();
 
@@ -22,7 +24,10 @@ export default class SearchForm extends Component {
 					searchString
 				})
 				.then(response => {
-					console.log('response:', _.get(response.data, 'matches'));
+					const artists = _.get(response.data, 'matches')
+
+					props.actions.updateArtists(artists);
+					console.log('response:', artists);
 				})
 				.catch(err => {
 					console.log('error:', err);
