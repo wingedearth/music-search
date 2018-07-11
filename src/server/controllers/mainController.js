@@ -1,10 +1,20 @@
 import getTemplate from '../../assets/views/index';
 
 const initialStateData = {
-	foo: 'bar',
-	searchText: '',
-	searchTerm: '',
-	title: 'Music Search'
+	mainStore: {
+		foo: 'bar',
+		venture: ['Thaddeus', 'Dean', 'Hank', 'Brock Sampson', 'JJ', 'Helper'],
+		title: 'Music Search'
+	},
+	searchStore: {
+		searchText: '',
+		searchTerm: '',
+	},
+	artistStore: {
+		artists: [],
+		currentArtist: {},
+		relatedArtists: []
+	}
 };
 const markup = '';
 

@@ -1,6 +1,6 @@
 {
   "name": "music-search",
-  "version": "1.2.4",
+  "version": "1.2.6",
   "description": "A search interface for music",
   "main": "index.js",
   "scripts": {
@@ -38,6 +38,7 @@
     "mongoose": "^5.1.7",
     "nodemon-webpack-plugin": "^4.0.3",
     "path": "^0.12.7",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "rimraf": "^2.6.2",

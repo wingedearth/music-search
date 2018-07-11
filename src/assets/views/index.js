@@ -5,7 +5,7 @@
  */
 export default function(markup, initialStateData) {
 	const initialState = JSON.stringify(initialStateData);
-	const { title } = initialStateData;
+	const { title } = initialStateData.mainStore;
 
 	return `
 		<!DOCTYPE html>
@@ -19,7 +19,7 @@ export default function(markup, initialStateData) {
 			<body>
 				<div id="main">${markup}</div>
 				<script type="text/javascript" src="app.js"></script>
-				<script>window.__INITIAL_STATE__ = ${initialState}</script>
+				<script>window.__INITIAL_STATE = ${initialState}</script>
 			</body>
 		</html>`;
 }

@@ -1,6 +1,8 @@
+@import 'variables';
+
 .information {
 	width: 100%;
-	background-color: white;
+	background-color: $information-background-color;
 	position: relative;
 	min-height: 500px;
 	margin: 0 0;
@@ -18,12 +20,34 @@
 .information__panel {
 	min-height: 300px;
 	width: 40%;
-	background-color: #c6cccc;
+	background-color: $panel-background-color;
 	border: 2px solid black;
 	border-radius: 1px;
 	text-align: left;
 }
 
+.information__panel-title {
+	padding: 5px 5px;
+	font-size: 18px;
+	font-weight: 900;
+	font-style: italic;
+}
+
 .information__panel-text {
 	padding: 5px 5px;
+}
+
+.information-artists {
+	padding-left: 10px;
+	padding-bottom: 15px;
+}
+
+.information__artists-item {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.information__artists-item:hover {
+	background-color: darken($panel-background-color, 10%);
+	cursor: pointer;
 }
