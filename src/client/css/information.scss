@@ -55,7 +55,7 @@
 .information__artists-item {
 	padding-top: 3px;
 	padding-bottom: 3px;
-	font-size: 15px;
+	font-size: 17px;
 	animation: fadein 1s;
 	transition: all 300ms ease-in-out;
 }
@@ -63,15 +63,15 @@
 .information__related-item {
 	padding-top: 3px;
 	padding-bottom: 3px;
-	font-size: 15px;
+	font-size: 17px;
 	animation: fadein 1s;
 }
 
 .information__artists-item:hover {
 	background-color: darken($panel-background-color, 10%);
 	cursor: pointer;
-	font-weight: 900;
-	font-size: 16px;
+	font-weight: 800;
+	font-size: 18px;
 }
 
 .information__artist-image {
