@@ -7,8 +7,7 @@ const initialStateData = {
 		title: 'Music Search'
 	},
 	searchStore: {
-		searchText: '',
-		searchTerm: '',
+		searchText: ''
 	},
 	artistStore: {
 		artists: [],

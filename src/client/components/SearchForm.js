@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import axios from 'axios';
 import '../css/search-form.scss';
 
-export default class SearchForm extends Component {
+class SearchForm extends Component {
 	constructor(props) {
 		super(props);
-
-		console.log('SearchForm props:', props);
 
 		this.sendQuery = event => {
 			event.preventDefault();
@@ -16,7 +15,8 @@ export default class SearchForm extends Component {
 
 			if (searchString.length < 1) return;
 
-			console.log('searchString:', searchString);
+			props.actions.updateSearchText(searchString);
+			props.actions.updateArtists(`Searching for ${searchString}`);
 
 			// send query to server
 			axios
@@ -24,10 +24,13 @@ export default class SearchForm extends Component {
 					searchString
 				})
 				.then(response => {
-					const artists = _.get(response.data, 'matches')
+					const responseData = _.get(response.data, 'matches');
+					const responseFound = Array.isArray(responseData) && responseData.length > 0;
+					const artists = responseFound ? responseData : 'No results found';
 
-					props.actions.updateArtists(artists);
-					console.log('response:', artists);
+					setTimeout(() => {
+						props.actions.updateArtists(artists);
+					}, 500);
 				})
 				.catch(err => {
 					console.log('error:', err);
@@ -62,3 +65,9 @@ export default class SearchForm extends Component {
 		);
 	}
 }
+
+SearchForm.propTypes = {
+	actions: PropTypes.object
+};
+
+export default SearchForm;
