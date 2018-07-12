@@ -1,10 +1,21 @@
 import React, { Component, createContext } from 'react';
+import axios from 'axios';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import { Context } from '../store/store';
 
 const { Provider } = Context;
+const config = { headers: { 'content-type': 'application/json' } };
 
+/**
+ * send an axios GET request with content-type: application/json header
+ * @param {string} url - must include query param for genre
+ */
+function callAxios(genre) {
+	const url = `/genre?genre=${encodeURIComponent(genre)}`;
+
+	return axios.get(url, config);
+}
 class StoreProvider extends Component {
 	constructor(props) {
 		super(props);
@@ -13,7 +24,6 @@ class StoreProvider extends Component {
 	}
 
 	render() {
-		const self = this;
 		const { children } = this.props;
 
 		return (
@@ -21,13 +31,15 @@ class StoreProvider extends Component {
 				value={{
 					store: this.state,
 					actions: {
-						loghello: () => {
-							console.log('Hi Friend!');
-						},
-						updateVenture: venture => {
-							const { mainStore } = this.state;
-							const newMainStore = Object.assign({}, mainStore, { venture });
-							self.setState({ mainStore: newMainStore });
+						/**
+						 * Replaces searchText in searchStore with latest searchString
+						 * @param {string} searchString - from search form
+						 */
+						updateSearchText: searchString => {
+							const { searchStore } = this.state;
+							const newSearchStore = Object.assign({}, searchStore, { searchText: searchString });
+
+							this.setState({ searchStore: newSearchStore });
 						},
 
 						/**
@@ -38,6 +50,51 @@ class StoreProvider extends Component {
 							const { artistStore } = this.state;
 							const newArtistStore = Object.assign({}, artistStore, { artists });
 							this.setState({ artistStore: newArtistStore });
+						},
+
+						/**
+						 * Replaces currentArtist in artistStore
+						 * @param {obj} currentArtist - selected by mouse click
+						 */
+						updateCurrentArtist: currentArtist => {
+							const self = this;
+							const { artistStore } = this.state;
+							const { genres } = currentArtist;
+							const updatedGenres = genres.map(genre => {
+								return typeof genre === 'object' ? genre.genre : genre;
+							});
+							const relatedArtists = [];
+
+							console.log('currentArtist:', currentArtist);
+
+							// Send a GET request for each genre to retrieve artists matching the genre
+							axios.all(updatedGenres.map(callAxios)).then(responses => {
+								responses.forEach(response => {
+									response.data.forEach(relatedArtist => {
+										relatedArtists.push(relatedArtist);
+									});
+								});
+
+								// remove duplicates
+								const uniqueRelatedArtists = _.uniqBy(relatedArtists, 'spotifyId');
+
+								// sort by popularity
+								const orderedRelatedArtists = _.orderBy(uniqueRelatedArtists, 'popularity', 'desc');
+
+								// limit related artists to no more than the 50 most popular
+								const limitedRelatedArtists = orderedRelatedArtists.length >= 50
+									? _.slice(orderedRelatedArtists, 0, 50)
+									: orderedRelatedArtists;
+
+								// prepare updates to artistStore (currentArtist, relatedArtist)
+								const newArtistStore = Object.assign({}, artistStore, {
+									currentArtist,
+									relatedArtists: limitedRelatedArtists
+								});
+
+								// update artistStore
+								self.setState({ artistStore: newArtistStore });
+							});
 						}
 					}
 				}}
