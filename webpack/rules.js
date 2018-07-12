@@ -13,6 +13,18 @@ const scssRule = {
 	use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
 };
 
-const rules = [jsRule, scssRule];
+const imageRule = {
+	test: /\.(png|jp(e*)g|svg)$/,
+	use: [
+		{
+			loader: 'file-loader',
+			options: {
+				name: '/images/[name].[ext]'
+			}
+		}
+	]
+};
+
+const rules = [jsRule, scssRule, imageRule];
 
 module.exports = rules;
