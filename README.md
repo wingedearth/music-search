@@ -1,7 +1,7 @@
 # music-search
 A search interface for music
 
-Current deployment: http://wingedearth-
+Current deployment: http://wingedearth-music-search.herokuapp.com
 
 Follow Agile progress of the app on my Trello board: https://trello.com/b/0ov5tGxx/music-search
 
