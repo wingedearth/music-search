@@ -13,6 +13,7 @@ const port = process.env.PORT || DEFAULT_PORT;
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(express.static('./build'));
+server.use(express.static(path.resolve(__dirname, 'assets', 'images')));
 server.use(router);
 
 server.listen(port, () => console.log(`A goblin-mage has conjured a server on port ${port}.`));
