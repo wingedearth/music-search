@@ -13,13 +13,13 @@ export default class Nav extends Component {
 		return (
 			<div className="nav">
 				<div className="nav__content">
+					<div className="nav__title">
+						<div className="nav__title-text">{MAIN_TITLE}</div>
+					</div>
 					<div className="nav__search">
 						<StoreConsumer>
 							<SearchForm placeholder="Search for Artist" />
 						</StoreConsumer>
-					</div>
-					<div className="nav__title">
-						<div className="nav__title-text">{MAIN_TITLE}</div>
 					</div>
 				</div>
 			</div>
