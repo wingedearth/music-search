@@ -4,6 +4,7 @@
   "description": "A search interface for music",
   "main": "index.js",
   "scripts": {
+    "bump": "npm version patch && git push && git push --tags",
     "clean": "rimraf build",
     "frontend": "node ./node_modules/webpack/bin/webpack --config webpack.config.frontend.js",
     "frontend:dev": "node ./node_modules/webpack/bin/webpack --config webpack.config.frontend.js --watch",
