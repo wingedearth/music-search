@@ -10,7 +10,7 @@
     "server": "ENVIRONMENT=production node ./node_modules/webpack/bin/webpack --config ./webpack.config.backend.js && node ./build/server.js",
     "server:dev": "ENVIRONMENT=development node ./node_modules/webpack/bin/webpack --config ./webpack.config.backend.js --watch",
     "start": "npm run clean && npm run frontend && ENVIRONMENT=production npm run server",
-    "start:dev": "npm run clean && npm run frontend && npm run server:dev"
+    "start:dev": "npm run clean && npm run frontend:dev & npm run server:dev"
   },
   "repository": {
     "type": "git",
