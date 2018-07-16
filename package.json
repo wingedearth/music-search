@@ -1,16 +1,17 @@
 {
   "name": "music-search",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "A search interface for music",
   "main": "index.js",
   "scripts": {
+    "bump": "npm version patch && git push && git push --tags",
     "clean": "rimraf build",
     "frontend": "node ./node_modules/webpack/bin/webpack --config webpack.config.frontend.js",
     "frontend:dev": "node ./node_modules/webpack/bin/webpack --config webpack.config.frontend.js --watch",
     "server": "ENVIRONMENT=production node ./node_modules/webpack/bin/webpack --config ./webpack.config.backend.js && node ./build/server.js",
     "server:dev": "ENVIRONMENT=development node ./node_modules/webpack/bin/webpack --config ./webpack.config.backend.js --watch",
     "start": "npm run clean && npm run frontend && ENVIRONMENT=production npm run server",
-    "start:dev": "npm run clean && npm run frontend && npm run server:dev"
+    "start:dev": "npm run clean && npm run frontend:dev & npm run server:dev"
   },
   "repository": {
     "type": "git",
