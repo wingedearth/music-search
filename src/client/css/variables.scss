@@ -1,6 +1,10 @@
-// $panel-background-color: #c6cccc;
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
+$title-font: 'Playfair Display', serif;
+$primary-font: 'Noto Sans', sans-serif;
+
 $panel-background-color: white;
 $information-background-color: white;
-// $primary-color: #004953;
 $primary-color: #8B0000;
-$secondary-color: darkblue;
+$secondary-color: #e90a2f;
