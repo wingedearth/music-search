@@ -8,11 +8,11 @@ dotenv.config();
 mongoose.set('strictQuery', false);
 
 // if not production env, use local MongoDB. Otherwise used hosted MongoDB.
-const databasePath =
-	process.env.ENVIRONMENT !== 'production' ? `mongodb://localhost:27017/musicsearch` : process.env.DATABASE_URL;
+const isProduction = process.env.NODE_ENV === 'production' || process.env.ENVIRONMENT === 'production';
+const databasePath = !isProduction ? `mongodb://localhost:27017/musicsearch` : process.env.DATABASE_URL;
 
 // If using local MongoDB, make sure it's turned on.
-if (process.env.ENVIRONMENT !== 'production') {
+if (!isProduction) {
 	net.connect(
 		27017,
 		'localhost'
