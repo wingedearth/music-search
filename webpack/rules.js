@@ -10,19 +10,38 @@ const jsRule = {
 
 const scssRule = {
 	test: /\.scss$/,
-	use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+	use: [
+		'style-loader',
+		MiniCssExtractPlugin.loader,
+		{
+			loader: 'css-loader',
+			options: {
+				modules: {
+					auto: true,
+					namedExport: false,
+					exportLocalsConvention: 'camelCase'
+				}
+			}
+		},
+		{
+			loader: 'sass-loader',
+			options: {
+				api: 'modern',
+				implementation: require('sass'),
+				sassOptions: {
+					style: 'compressed'
+				}
+			}
+		}
+	]
 };
 
 const imageRule = {
 	test: /\.(png|jp(e*)g|svg)$/,
-	use: [
-		{
-			loader: 'file-loader',
-			options: {
-				name: '/images/[name].[ext]'
-			}
-		}
-	]
+	type: 'asset/resource',
+	generator: {
+		filename: 'images/[name][ext]'
+	}
 };
 
 const rules = [jsRule, scssRule, imageRule];

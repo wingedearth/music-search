@@ -1,11 +1,11 @@
-@import 'variables';
+@use 'variables' as vars;
 
 body {
 	margin: 0 0;
 	padding: 0 0;
 	background-color: white;
-	font-family: $primary-font;
-	background-image: url('/images/music-bg4.jpg');
+	font-family: vars.$primary-font;
+	background-image: url('../../assets/images/music-bg4.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 }

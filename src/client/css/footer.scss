@@ -1,4 +1,4 @@
-@import 'variables';
+@use 'variables' as vars;
 
 .footer {
 	position: relative;
@@ -15,7 +15,7 @@
 }
 
 .footer__textblock-text {
-	color: $secondary-color;
+	color: vars.$secondary-color;
 	font-weight: 700;
 	font-size: 15px;
 	margin-left: auto;

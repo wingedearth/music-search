@@ -2,7 +2,10 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import net from 'net';
 
-dotenv.load();
+dotenv.config();
+
+// Fix mongoose strictQuery deprecation warning
+mongoose.set('strictQuery', false);
 
 // if not production env, use local MongoDB. Otherwise used hosted MongoDB.
 const databasePath =

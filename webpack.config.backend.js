@@ -15,12 +15,6 @@ const backend = _.merge({}, config, {
 	output: {
 		libraryTarget: 'commonjs2'
 	},
-	node: {
-		console: false,
-		global: false,
-		process: false,
-		Buffer: false
-	},
 	externals: [nodeExternals()],
 	plugins: plugins
 });

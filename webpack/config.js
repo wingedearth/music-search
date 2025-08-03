@@ -4,11 +4,6 @@ const rules = require('./rules');
 
 const config = {
 	mode: helpers.isProd() ? 'production' : 'development',
-	node: {
-		fs: 'empty',
-		net: 'empty',
-		tls: 'empty'
-	},
 	output: {
 		publicPath: path.resolve(__dirname, '..', 'build'),
 		filename: '[name].js',
@@ -35,7 +30,12 @@ const config = {
 				}
 			}
 		}
-	}
+	},
+	ignoreWarnings: [
+		/The legacy JS API is deprecated/,
+		/export.*was not found/,
+		/Deprecation Warning/
+	]
 };
 
 module.exports = config;

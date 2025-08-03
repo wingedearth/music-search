@@ -1,10 +1,10 @@
-@import 'variables';
+@use 'variables' as vars;
 
 .nav {
 	position: relative;
 	height: 75px;
 	width: 100%;
-	font-family: $title-font;
+	font-family: vars.$title-font;
 }
 
 .nav__content {
@@ -20,7 +20,7 @@
 }
 
 .nav__title-text {
-	color: $secondary-color;
+	color: vars.$secondary-color;
 	font-weight: 700;
 	font-size: 25px;
 	margin-left: auto;
