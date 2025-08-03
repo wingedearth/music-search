@@ -16,7 +16,9 @@
     "build": "npm run clean && npm run frontend && ENVIRONMENT=production node ./node_modules/webpack/bin/webpack --config ./webpack.config.backend.js",
     "heroku-postbuild": "npm run build",
     "start": "node ./build/server.js",
-    "start:dev": "npm run clean && npm run frontend:dev & npm run server:dev"
+    "start:dev": "npm run clean && npm run frontend:dev & npm run server:dev",
+    "mongodb:start": "node start-mongodb.js",
+    "dev": "echo 'Starting MongoDB and development server...' && npm run mongodb:start & sleep 3 && npm run start:dev"
   },
   "repository": {
     "type": "git",

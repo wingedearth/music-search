@@ -1,15 +1,84 @@
+@use 'variables' as vars;
+
 .searchform {
 	width: 100%;
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 8px;
+	border-radius: 50px;
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	transition: all 0.3s ease;
+
+	&:hover {
+		background: rgba(255, 255, 255, 0.15);
+		border-color: rgba(255, 255, 255, 0.3);
+	}
+
+	&:focus-within {
+		background: rgba(255, 255, 255, 0.2);
+		border-color: rgba(255, 255, 255, 0.4);
+		box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+	}
 }
 
 .searchform__input {
-	position: relative;
-	height: 20px;
-	width: calc(95% - 95px);
+	flex: 1;
+	height: 45px;
+	padding: 0 20px;
+	border: none;
+	background: transparent;
+	color: white;
+	font-size: 1.1rem;
+	font-family: vars.$primary-font;
+	border-radius: 25px;
+	outline: none;
+	transition: all 0.3s ease;
+
+	&::placeholder {
+		color: rgba(255, 255, 255, 0.7);
+		font-style: italic;
+	}
+
+	&:focus {
+		color: white;
+		&::placeholder {
+			color: rgba(255, 255, 255, 0.5);
+		}
+	}
 }
 
 .searchform__submit {
-	height: 20px;
-	width: 80px;
-	margin-left: 15px;
+	height: 45px;
+	padding: 0 24px;
+	background: rgba(255, 255, 255, 0.9);
+	color: vars.$primary-color;
+	border: none;
+	border-radius: 25px;
+	font-weight: 600;
+	font-size: 1rem;
+	font-family: vars.$primary-font;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	min-width: 100px;
+
+	&:hover {
+		background: white;
+		transform: translateY(-1px);
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	}
+
+	&:active {
+		transform: translateY(0);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	}
+
+	@media (max-width: 768px) {
+		min-width: 80px;
+		padding: 0 20px;
+		font-size: 0.9rem;
+	}
 }

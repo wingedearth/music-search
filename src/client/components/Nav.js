@@ -11,18 +11,22 @@ export default class Nav extends Component {
 
 	render() {
 		return (
-			<div className="nav">
-				<div className="nav__content">
-					<div className="nav__title">
-						<div className="nav__title-text">{MAIN_TITLE}</div>
+			<nav className="nav">
+				<div className="nav__container">
+					<div className="nav__brand">
+						<h1 className="nav__title">
+							<span className="nav__icon">🎵</span>
+							{MAIN_TITLE}
+						</h1>
+						<p className="nav__subtitle">Discover your next favorite artist</p>
 					</div>
 					<div className="nav__search">
 						<StoreConsumer>
-							<SearchForm placeholder="Search for Artist" />
+							<SearchForm placeholder="Search for artists..." />
 						</StoreConsumer>
 					</div>
 				</div>
-			</div>
+			</nav>
 		);
 	}
 }
