@@ -13,7 +13,9 @@
     "frontend:dev": "node ./node_modules/webpack/bin/webpack --config webpack.config.frontend.js --watch",
     "server": "ENVIRONMENT=production node ./node_modules/webpack/bin/webpack --config ./webpack.config.backend.js && node ./build/server.js",
     "server:dev": "ENVIRONMENT=development node ./node_modules/webpack/bin/webpack --config ./webpack.config.backend.js --watch",
-    "start": "npm run clean && npm run frontend && ENVIRONMENT=production npm run server",
+    "build": "npm run clean && npm run frontend && ENVIRONMENT=production node ./node_modules/webpack/bin/webpack --config ./webpack.config.backend.js",
+    "heroku-postbuild": "npm run build",
+    "start": "node ./build/server.js",
     "start:dev": "npm run clean && npm run frontend:dev & npm run server:dev"
   },
   "repository": {
